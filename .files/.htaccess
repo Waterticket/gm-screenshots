@@ -1,0 +1,9 @@
+RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} .*jpg$|.*gif$|.*png$|.*jpeg$ [NC]
+
+#SetEnvIfNoCase Referer "^http(s)?://(www\.)?cookiee.net$" html_ref=1
+#Order Allow,Deny
+#Allow from env=html_ref
+
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?cookiee.net [NC]
+RewriteRule .*\.(png|gif|jpg|jpeg|bmp)$ https://www.cookiee.net/blocked.png [R,NC]
